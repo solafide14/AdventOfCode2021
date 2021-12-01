@@ -1,0 +1,34 @@
+	//First Star
+  public static int CalculateDepthIncreases(List<int> list)
+	{
+		int count = 0;
+		for(int i = 1; i < list.Count; i++)
+		{
+			if(list[i-1] < list[i])
+			{
+				count++;
+			}
+			
+		}
+		
+		return count;
+	}
+	
+  
+  //Second Star
+	public static int CalculateDepthIncreasesWindow(List<int> list)
+	{
+		int count = 0;
+		for(int i = 0; i < list.Count-3; i++)
+		{
+			int setOne = list[i] + list[i+1] + list[i+2];
+			int setTwo = list[i+1] + list[i+2] + list[i+3];
+			
+			if(setOne < setTwo)
+			{
+				count++;
+			}
+		}
+		
+		return count;
+	}

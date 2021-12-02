@@ -1,0 +1,60 @@
+
+//First Task
+public static int CalculatePosition(string[] list)
+	{
+		int horizontalDistance = 0;
+		int depth = 0;
+		
+		for(int i = 0; i< list.Length; i+= 2)
+		{
+			string direction = list[i];
+			int distance = Convert.ToInt32(list[i+1]);
+			
+			switch(list[i]){
+				case "forward":
+					horizontalDistance += distance;
+					break;
+				case "down":
+					depth += distance;
+					break;
+				case "up":
+					depth -= distance;
+					break;
+			}
+			
+		}
+		
+		return horizontalDistance * depth;
+		
+	}
+	
+//Second Task
+public static int CalculatePositionComplicated(string[] list)
+	{
+		int horizontalDistance = 0;
+		int depth = 0;
+		int aim = 0;
+		
+		for(int i = 0; i< list.Length; i+= 2)
+		{
+			string direction = list[i];
+			int distance = Convert.ToInt32(list[i+1]);
+			
+			switch(list[i]){
+				case "forward":
+					horizontalDistance += distance;
+					depth += (distance * aim);
+					break;
+				case "down":
+					aim += distance;
+					break;
+				case "up":
+					aim -= distance;
+					break;
+			}
+			
+		}
+		
+		return horizontalDistance * depth;
+		
+	}
